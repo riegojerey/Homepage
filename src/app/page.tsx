@@ -29,21 +29,41 @@ interface GitHubRepo {
 
 const SakuraAnimation = () => {
   useEffect(() => {
+    const container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.top = '0';
+    container.style.left = '0';
+    container.style.width = '100%';
+    container.style.height = '100%';
+    container.style.pointerEvents = 'none';
+    container.style.zIndex = '0';
+    document.body.appendChild(container);
+
     const createSakura = () => {
       const sakura = document.createElement('div');
       sakura.className = 'sakura';
       sakura.style.left = `${Math.random() * 100}vw`;
       sakura.style.animationDuration = `${Math.random() * 5 + 5}s`;
       sakura.style.opacity = `${Math.random() * 0.6 + 0.4}`;
-      document.body.appendChild(sakura);
+      container.appendChild(sakura);
 
-      setTimeout(() => {
-        sakura.remove();
-      }, 10000);
+      const cleanup = () => {
+        if (sakura && sakura.parentNode === container) {
+          container.removeChild(sakura);
+        }
+      };
+
+      setTimeout(cleanup, 10000);
     };
 
     const interval = setInterval(createSakura, 300);
-    return () => clearInterval(interval);
+
+    return () => {
+      clearInterval(interval);
+      if (container && container.parentNode === document.body) {
+        document.body.removeChild(container);
+      }
+    };
   }, []);
 
   return null;
