@@ -19,10 +19,13 @@ const SakuraAnimation = () => {
     const createSakura = () => {
       const sakura = document.createElement('div');
       sakura.className = `sakura petal${Math.floor(Math.random() * 3) + 1}`;
-      sakura.style.left = `${Math.random() * 100}vw`;
-      sakura.style.animationDuration = `${Math.random() * 7 + 8}s, ${Math.random() * 4 + 3}s`;
-      sakura.style.opacity = `${Math.random() * 0.3 + 0.2}`;
-      sakura.style.transform = `scale(${Math.random() * 0.4 + 0.4})`;
+      sakura.style.left = `${Math.random() * 120 - 10}vw`;
+      sakura.style.top = '-5%';
+      const fallDuration = Math.random() * 8 + 12;
+      const swayDuration = Math.random() * 4 + 3;
+      sakura.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
+      sakura.style.opacity = `${Math.random() * 0.4 + 0.3}`;
+      sakura.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
       container.appendChild(sakura);
 
       const cleanup = () => {
@@ -31,16 +34,14 @@ const SakuraAnimation = () => {
         }
       };
 
-      setTimeout(cleanup, 15000);
+      setTimeout(cleanup, fallDuration * 1000);
     };
 
-    // Create initial petals
-    for (let i = 0; i < 5; i++) {
-      setTimeout(() => createSakura(), i * 300);
+    for (let i = 0; i < 8; i++) {
+      setTimeout(() => createSakura(), i * 400);
     }
 
-    // Then create new petals less frequently
-    const interval = setInterval(createSakura, 2000);
+    const interval = setInterval(createSakura, 1500);
 
     return () => {
       clearInterval(interval);

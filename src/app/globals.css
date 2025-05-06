@@ -217,11 +217,12 @@
   /* Sakura Animation */
   .sakura {
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     pointer-events: none;
     background-image: none;
     animation: fall 15s linear infinite, sway 5s ease-in-out infinite alternate;
+    will-change: transform;
   }
 
   .sakura::before {
@@ -234,7 +235,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    filter: drop-shadow(0 0 1.5px rgba(255, 183, 197, 0.25));
+    filter: drop-shadow(0 0 2px rgba(255, 183, 197, 0.3));
   }
 
   .sakura.petal1::before {
@@ -251,22 +252,31 @@
 
   @keyframes fall {
     0% {
-      transform: translate(0, -10vh) rotate(0deg);
+      transform: translate3d(0, -10%, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate3d(100px, 25vh, 0) rotate(90deg);
+    }
+    50% {
+      transform: translate3d(-100px, 50vh, 0) rotate(180deg);
+    }
+    75% {
+      transform: translate3d(100px, 75vh, 0) rotate(270deg);
     }
     100% {
-      transform: translate(0, 100vh) rotate(360deg);
+      transform: translate3d(0, 110vh, 0) rotate(360deg);
     }
   }
 
   @keyframes sway {
     0% {
-      transform: translateX(-15px) rotate(-15deg);
+      transform: translate3d(-20px, 0, 0) rotate(-15deg);
     }
     50% {
-      transform: translateX(15px) rotate(15deg);
+      transform: translate3d(20px, 0, 0) rotate(15deg);
     }
     100% {
-      transform: translateX(-15px) rotate(-15deg);
+      transform: translate3d(-20px, 0, 0) rotate(-15deg);
     }
   }
 } 
