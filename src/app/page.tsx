@@ -45,7 +45,7 @@ const SakuraAnimation = () => {
       sakura.style.left = `${Math.random() * 100}vw`;
       sakura.style.animationDuration = `${Math.random() * 7 + 8}s, ${Math.random() * 4 + 3}s`;
       sakura.style.opacity = `${Math.random() * 0.3 + 0.2}`;
-      sakura.style.transform = `scale(${Math.random() * 0.3 + 0.3})`;
+      sakura.style.transform = `scale(${Math.random() * 0.4 + 0.4})`;
       container.appendChild(sakura);
 
       const cleanup = () => {
