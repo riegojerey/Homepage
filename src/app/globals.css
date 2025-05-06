@@ -217,11 +217,11 @@
   /* Sakura Animation */
   .sakura {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     pointer-events: none;
     background-image: none;
-    animation: fall 10s linear infinite, sway 4s ease-in-out infinite alternate;
+    animation: fall 15s linear infinite, sway 5s ease-in-out infinite alternate;
   }
 
   .sakura::before {
@@ -234,19 +234,19 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    filter: drop-shadow(0 0 2px rgba(255, 183, 197, 0.3));
+    filter: drop-shadow(0 0 1px rgba(255, 183, 197, 0.2));
   }
 
   .sakura.petal1::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgba(255, 183, 197, 0.9)' d='M12 2C7.5 2 4.3 6.3 3.8 12.4c2.2 0.8 4.2-1.8 4.2-1.8s-1.2 4.1 2 4.4c3.2 0.3 4-3 4-3s0.8 3.3 4 3c3.2-0.3 2-4.4 2-4.4s2 2.6 4.2 1.8C23.7 6.3 20.5 2 16 2h-4z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgba(255, 183, 197, 0.7)' d='M12 2C7.5 2 4.3 6.3 3.8 12.4c2.2 0.8 4.2-1.8 4.2-1.8s-1.2 4.1 2 4.4c3.2 0.3 4-3 4-3s0.8 3.3 4 3c3.2-0.3 2-4.4 2-4.4s2 2.6 4.2 1.8C23.7 6.3 20.5 2 16 2h-4z'/%3E%3C/svg%3E");
   }
 
   .sakura.petal2::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgba(255, 197, 208, 0.9)' d='M12 2C8.2 2 4.8 4.7 4.8 10c0 3.8 2.2 7.2 5.2 7.2 2 0 2.8-1.8 2-1.8s-2.8 1.8-2 1.8c3 0 5.2-3.4 5.2-7.2C15.2 4.7 11.8 2 8 2h4z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgba(255, 197, 208, 0.7)' d='M12 2C8.2 2 4.8 4.7 4.8 10c0 3.8 2.2 7.2 5.2 7.2 2 0 2.8-1.8 2-1.8s-2.8 1.8-2 1.8c3 0 5.2-3.4 5.2-7.2C15.2 4.7 11.8 2 8 2h4z'/%3E%3C/svg%3E");
   }
 
   .sakura.petal3::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgba(255, 218, 224, 0.9)' d='M12 2C9.5 2 6.3 4.6 6.3 10c0 3.8 2.2 7.2 5.2 7.2 2 0 2.8-1.8 2-1.8s-2.8 1.8-2 1.8c3 0 5.2-3.4 5.2-7.2 0-5.4-3.2-8-5.7-8h1z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='rgba(255, 218, 224, 0.7)' d='M12 2C9.5 2 6.3 4.6 6.3 10c0 3.8 2.2 7.2 5.2 7.2 2 0 2.8-1.8 2-1.8s-2.8 1.8-2 1.8c3 0 5.2-3.4 5.2-7.2 0-5.4-3.2-8-5.7-8h1z'/%3E%3C/svg%3E");
   }
 
   @keyframes fall {
@@ -260,13 +260,13 @@
 
   @keyframes sway {
     0% {
-      transform: translateX(-10px) rotate(-15deg);
+      transform: translateX(-15px) rotate(-15deg);
     }
     50% {
-      transform: translateX(10px) rotate(15deg);
+      transform: translateX(15px) rotate(15deg);
     }
     100% {
-      transform: translateX(-10px) rotate(-15deg);
+      transform: translateX(-15px) rotate(-15deg);
     }
   }
 } 
