@@ -41,10 +41,11 @@ const SakuraAnimation = () => {
 
     const createSakura = () => {
       const sakura = document.createElement('div');
-      sakura.className = 'sakura';
+      sakura.className = `sakura petal${Math.floor(Math.random() * 3) + 1}`;
       sakura.style.left = `${Math.random() * 100}vw`;
-      sakura.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      sakura.style.animationDuration = `${Math.random() * 5 + 5}s, ${Math.random() * 3 + 2}s`;
       sakura.style.opacity = `${Math.random() * 0.6 + 0.4}`;
+      sakura.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
       container.appendChild(sakura);
 
       const cleanup = () => {
