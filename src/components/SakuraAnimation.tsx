@@ -16,16 +16,25 @@ const SakuraAnimation = () => {
     container.style.zIndex = '0';
     document.body.appendChild(container);
 
-    const createSakura = () => {
+    const createSakura = (isFloating = false) => {
       const sakura = document.createElement('div');
-      sakura.className = `sakura petal${Math.floor(Math.random() * 3) + 1}`;
+      const petalType = Math.floor(Math.random() * 3) + 1;
+      sakura.className = `sakura petal${petalType} ${isFloating ? 'floating' : 'falling'}`;
+      
+      // Position petals
       sakura.style.left = `${Math.random() * 120 - 10}vw`;
-      sakura.style.top = '-5%';
-      const fallDuration = Math.random() * 8 + 12;
+      sakura.style.top = isFloating ? '110%' : '-5%';
+      
+      // Randomize animation duration
+      const mainDuration = isFloating 
+        ? Math.random() * 10 + 15 // 15-25 seconds for floating
+        : Math.random() * 8 + 12;  // 12-20 seconds for falling
       const swayDuration = Math.random() * 4 + 3;
-      sakura.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
-      sakura.style.opacity = `${Math.random() * 0.4 + 0.3}`;
-      sakura.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+      sakura.style.animationDuration = `${mainDuration}s, ${swayDuration}s`;
+      
+      // Adjust opacity and size
+      sakura.style.opacity = `${Math.random() * 0.4 + 0.3}`; // 0.3-0.7
+      sakura.style.transform = `scale(${Math.random() * 0.5 + 0.5})`; // 0.5-1.0
       container.appendChild(sakura);
 
       const cleanup = () => {
@@ -34,14 +43,20 @@ const SakuraAnimation = () => {
         }
       };
 
-      setTimeout(cleanup, fallDuration * 1000);
+      setTimeout(cleanup, mainDuration * 1000);
     };
 
-    for (let i = 0; i < 8; i++) {
-      setTimeout(() => createSakura(), i * 400);
+    // Create initial petals - mix of falling and floating
+    for (let i = 0; i < 10; i++) {
+      setTimeout(() => {
+        createSakura(i % 3 === 0); // Every third petal floats up
+      }, i * 300);
     }
 
-    const interval = setInterval(createSakura, 1500);
+    // Create new petals regularly
+    const interval = setInterval(() => {
+      createSakura(Math.random() > 0.7); // 30% chance of floating petals
+    }, 1200);
 
     return () => {
       clearInterval(interval);

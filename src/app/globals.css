@@ -221,8 +221,15 @@
     height: 24px;
     pointer-events: none;
     background-image: none;
-    animation: fall 15s linear infinite, sway 5s ease-in-out infinite alternate;
     will-change: transform;
+  }
+
+  .sakura.falling {
+    animation: fall 15s linear infinite, sway 5s ease-in-out infinite alternate;
+  }
+
+  .sakura.floating {
+    animation: float 18s linear infinite, sway 6s ease-in-out infinite alternate;
   }
 
   .sakura::before {
@@ -265,6 +272,24 @@
     }
     100% {
       transform: translate3d(0, 110vh, 0) rotate(360deg);
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 110vh, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate3d(-100px, 75vh, 0) rotate(-90deg);
+    }
+    50% {
+      transform: translate3d(100px, 50vh, 0) rotate(-180deg);
+    }
+    75% {
+      transform: translate3d(-100px, 25vh, 0) rotate(-270deg);
+    }
+    100% {
+      transform: translate3d(0, -10%, 0) rotate(-360deg);
     }
   }
 
