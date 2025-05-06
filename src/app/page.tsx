@@ -239,14 +239,14 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 w-full max-w-6xl mt-20 min-h-screen relative"
+        className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 w-full max-w-6xl mt-20 min-h-screen relative px-4 sm:px-6 lg:px-8"
       >
         {/* Profile Image with Japanese-style frame */}
-        <div className="relative w-48 h-48 md:w-64 md:h-64 group">
+        <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 group">
           <div className="absolute -inset-1 bg-gradient-to-r from-[#DCA561] to-[#7E9CD8] rounded-full blur opacity-30 group-hover:opacity-40 transition-opacity duration-500"></div>
           <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-kanagawa-sumiInk4/30 backdrop-blur-sm bg-gradient-to-br from-kanagawa-sumiInk0/30 to-kanagawa-sumiInk4/20">
             <Image
-              src="/avatar.jpg"
+              src="/Homepage/avatar.jpg"
               alt="Riego Jeremy Terte"
               fill
               className="object-cover object-[center_40%] image-hover"
@@ -265,7 +265,7 @@ export default function Home() {
               transition={{ delay: 0.2, duration: 0.5 }}
             >
               <Image
-                src="/sig.png"
+                src="/Homepage/sig.png"
                 alt="Signature"
                 fill
                 className="object-contain filter brightness-125 z-10"
@@ -319,7 +319,7 @@ export default function Home() {
           </div>
 
           {/* Social Links with Japanese-style hover effects */}
-          <div className="flex gap-4 md:gap-6 justify-center md:justify-start flex-wrap">
+          <div className="flex gap-3 sm:gap-4 md:gap-6 justify-center md:justify-start flex-wrap">
             {[
               { icon: FiGithub, href: "https://github.com/riegojerey", label: "GitHub" },
               { icon: FiLinkedin, href: "https://www.linkedin.com/in/riego-terte-210164173/", label: "LinkedIn" },
@@ -335,7 +335,7 @@ export default function Home() {
                 className="group relative p-2"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#DCA561] to-[#7E9CD8] rounded-full blur opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
-                <social.icon className="relative w-6 h-6 text-[#DCA561] group-hover:text-[#7E9CD8] transition-colors duration-300" />
+                <social.icon className="relative w-5 h-5 sm:w-6 sm:h-6 text-[#DCA561] group-hover:text-[#7E9CD8] transition-colors duration-300" />
                 <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs text-kanagawa-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                   {social.label}
                 </span>
@@ -346,16 +346,16 @@ export default function Home() {
       </motion.div>
 
       {/* Projects Section */}
-      <section className="w-full max-w-7xl py-16 mt-16">
+      <section className="w-full max-w-7xl py-16 mt-16 px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold mb-12 section-title ink-brush-text">Projects</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
           {repos.map((repo, index) => (
             <motion.div
               key={repo.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group p-8 hover:bg-kanagawa-sumiInk0/10 rounded-xl transition-all duration-300 border border-kanagawa-sumiInk4/20 backdrop-blur-sm bg-kanagawa-sumiInk0/5"
+              className="group p-4 sm:p-8 hover:bg-kanagawa-sumiInk0/10 rounded-xl transition-all duration-300 border border-kanagawa-sumiInk4/20 backdrop-blur-sm bg-kanagawa-sumiInk0/5"
             >
               <h3 className="text-2xl font-semibold text-kanagawa-foam mb-4 group-hover:text-[#7E9CD8] transition-colors duration-300">
                 {repo.name}
@@ -398,10 +398,10 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="w-full max-w-7xl py-16 mt-20">
+      <section className="w-full max-w-7xl py-16 mt-20 px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold mb-12 section-title ink-brush-text">Skills</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="h-[450px] w-full border border-kanagawa-sumiInk4/20 rounded-xl p-6 backdrop-blur-sm bg-kanagawa-sumiInk0/5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-start">
+          <div className="h-[450px] w-full border border-kanagawa-sumiInk4/20 rounded-xl p-4 sm:p-6 backdrop-blur-sm bg-kanagawa-sumiInk0/5">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart cx="50%" cy="50%" outerRadius="65%" data={skillCategories}>
                 <PolarGrid 
@@ -444,11 +444,11 @@ export default function Home() {
             </ResponsiveContainer>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {skills.hardSkills.map((skill, index) => (
               <div
                 key={skill.name}
-                className="group p-6 hover:bg-kanagawa-sumiInk0/10 rounded-xl transition-all duration-300 border border-kanagawa-sumiInk4/20 backdrop-blur-sm bg-kanagawa-sumiInk0/5"
+                className="group p-4 sm:p-6 hover:bg-kanagawa-sumiInk0/10 rounded-xl transition-all duration-300 border border-kanagawa-sumiInk4/20 backdrop-blur-sm bg-kanagawa-sumiInk0/5"
               >
                 <div className="flex justify-between items-center gap-4">
                   <span className={`text-kanagawa-foam text-lg md:text-xl font-medium group-hover:text-[#7E9CD8] transition-colors duration-300 ${jetbrainsMono.className}`}>
@@ -470,20 +470,20 @@ export default function Home() {
       </section>
 
       {/* Achievements Section */}
-      <section className="w-full max-w-7xl py-16 mt-16">
+      <section className="w-full max-w-7xl py-16 mt-16 px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold mb-12 section-title ink-brush-text">Achievements</h2>
         <div className="w-full">
-          <p className="text-kanagawa-foam text-lg md:text-xl mb-6 text-center">
+          <p className="text-kanagawa-foam text-lg md:text-xl mb-6 text-center px-4">
             Research Presenter, The 34th ITC-CSCC, Jeju shinhwa world, Republic of Korea
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {[
-              { src: '/korea0.jpg', alt: 'ITC-CSCC Conference Materials' },
-              { src: '/korea1.jpg', alt: 'ITC-CSCC Conference Presentation' }
+              { src: '/Homepage/korea0.jpg', alt: 'ITC-CSCC Conference Materials' },
+              { src: '/Homepage/korea1.jpg', alt: 'ITC-CSCC Conference Presentation' }
             ].map((image, index) => (
               <div
                 key={image.src}
-                className="w-full h-[180px] md:h-[220px] relative rounded-xl overflow-hidden group transform-gpu border border-kanagawa-sumiInk4/20 backdrop-blur-sm"
+                className="w-full h-[180px] md:h-[220px] relative rounded-xl overflow-hidden group transform-gpu border border-kanagawa-sumiInk4/20 backdrop-blur-sm mx-auto"
               >
                 <div className="relative h-full">
                   <Image
