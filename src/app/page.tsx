@@ -27,6 +27,28 @@ interface GitHubRepo {
   default_branch: string;
 }
 
+const SakuraAnimation = () => {
+  useEffect(() => {
+    const createSakura = () => {
+      const sakura = document.createElement('div');
+      sakura.className = 'sakura';
+      sakura.style.left = `${Math.random() * 100}vw`;
+      sakura.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      sakura.style.opacity = `${Math.random() * 0.6 + 0.4}`;
+      document.body.appendChild(sakura);
+
+      setTimeout(() => {
+        sakura.remove();
+      }, 10000);
+    };
+
+    const interval = setInterval(createSakura, 300);
+    return () => clearInterval(interval);
+  }, []);
+
+  return null;
+};
+
 export default function Home() {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -220,6 +242,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col items-center mobile-padding relative overflow-hidden">
+      <SakuraAnimation />
       {/* Background decorative elements */}
       <div className="fixed inset-0 pointer-events-none">
         {/* Sakura petals */}

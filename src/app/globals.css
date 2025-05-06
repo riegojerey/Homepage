@@ -211,10 +211,39 @@
   }
 
   .japanese-text-shadow {
-    text-shadow: 
-      2px 2px 0 rgba(0, 0, 0, 0.2),
-      -2px 2px 0 rgba(0, 0, 0, 0.2),
-      2px -2px 0 rgba(0, 0, 0, 0.2),
-      -2px -2px 0 rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Sakura Animation */
+  .sakura {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 183, 197, 0.9),
+      rgba(255, 197, 208, 0.9)
+    );
+    border-radius: 12px 1px;
+    animation: fall 10s linear infinite, sway 4s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+
+  @keyframes sway {
+    0% {
+      transform: translateX(-10px) rotate(-15deg);
+    }
+    100% {
+      transform: translateX(10px) rotate(15deg);
+    }
   }
 } 
